@@ -200,6 +200,7 @@ body {
     transition: 0.9s;
     transform: scale(0.5, 0.5);
     visibility: hidden;
+    overflow: scroll;
 }
 .open-cart-section .cart-section{
     right: 0;
