@@ -309,14 +309,95 @@ body {
 }
 /*===============End==================*/
 
-
-
-
+/*============Footer styles=============*/
 footer {
     text-align: center;
     padding: 7px;
     background-color: rgb(219, 219, 219);
 }
+/*=========end of footer styles======*/
+
+/*================the styles of the popup when the cart is empty=========*/
+/*=========Start=============*/
+.empty-cart-popup {
+    width: 380px;
+    padding: 70px 15px;
+    position: fixed;
+    z-index: 7;
+    top: 200px;
+    right: 430px;
+    background-color: rgba(54, 54, 54, 0.922);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px rgb(39, 39, 39);
+    transform: translateY(-110%) scale(0.1, 0.1);
+    transition: transform 0.6s;
+    visibility: hidden;
+}
+.empty-cart-popup h3 {
+    color: white;
+}
+.empty-cart-popup button {
+    padding: 6px 20px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.empty-cart-popup-show {
+    transform: translateY(0%) scale(1, 1);
+    transition: transform 0.6s scale 0.8s;
+    visibility: visible;
+}
+/*==============End========*/
+
+/*==========the styles of the popup when the cart had products===========*/
+/*=============Start===============*/
+.have-product-oncart-popup {
+    width: 380px;
+    padding: 70px 15px;
+    position: fixed;
+    z-index: 7;
+    top: 200px;
+    right: 430px;
+    background-color: rgba(54, 54, 54, 0.922);
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px rgb(39, 39, 39);
+    box-shadow: 3px 3px 3px rgb(39, 39, 39);
+    transform: translateY(-110%) scale(0.1, 0.1);
+    transition: transform 0.6s;
+    visibility: hidden;
+}
+.have-product-oncart-popup h3 {
+    color: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.have-product-oncart-popup button {
+    padding: 6px 20px;
+    border: none;
+    color: white;
+    background-color: rgb(0, 0, 0);
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 800;
+    margin-top: 7px;
+}
+
+.have-product-oncart-popup-show {
+    transform: translateY(0%) scale(1, 1);
+    transition: transform 0.6s scale 0.8s;
+    visibility: visible;
+}
+/*==============End================*/
 
 
 
@@ -335,6 +416,19 @@ footer {
         column-gap: 10px;
         row-gap: 15px;
      }
+
+     .empty-cart-popup-show {
+        transform: translate(-100%, 50%) scale(1.8, 1.8);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+
+    .have-product-oncart-popup-show {
+        transform: translate(-100%, 50%) scale(1.8, 1.8);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+     
 }
 
 @media(max-width: 1000px){
@@ -344,6 +438,30 @@ footer {
 
     .nav-ba {
         padding: 0px 30px;
+    }
+
+    .empty-cart-popup-show {
+        transform: translate(33%, 50%) scale(1.1, 1.1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+    .have-product-oncart-popup-show {
+        transform: translate(33%, 50%) scale(1.1, 1.1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+}
+/*=========medium screens========*/
+@media(max-width: 800px){
+    .empty-cart-popup-show {
+        transform: translate(150%, 50%) scale(1.1, 1.1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+    .have-product-oncart-popup-show {
+        transform: translate(150%, 50%) scale(1.1, 1.1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
     }
 }
 
@@ -371,7 +489,34 @@ footer {
         font-size: 17px;
      }
 
+     .add-to-cart {
+       margin-left: auto;
+    }
+    .add-to-cart i {
+        font-size: 22px;
+    }
+
+    .empty-cart-popup-show {
+        transform: translate(90%, 25%) scale(1, 1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+    .have-product-oncart-popup-show {
+        transform: translate(90%, 25%) scale(1, 1);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+
 }
+
+@media(max-width:480px){
+    .empty-cart-popup-show {
+        transform: translate(100%, 20%) scale(0.7, 0.7);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+}
+
 
 @media(max-width:450px){
     .loggo {
@@ -383,4 +528,15 @@ footer {
         grid-template-columns: 1fr;
         
      }
+
+     .empty-cart-popup-show {
+        transform: translate(100%, 15%) scale(0.7, 0.7);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
+    .have-product-oncart-popup-show {
+        transform: translate(100%, 15%) scale(0.7, 0.7);
+        transition: transform 0.6s scale 0.8s;
+        visibility: visible;
+    }
 }

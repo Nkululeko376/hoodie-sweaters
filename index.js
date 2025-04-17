@@ -142,18 +142,37 @@ quantityInput.addEventListener('change', () => {
 
 //==========Placing the order
 const buyNowBtn = document.querySelector('.buy-now-btn');
-
+let showPopupEmptyCart = document.querySelector('.empty-cart-popup');
+let showPopupProductOnCart = document.querySelector('.have-product-oncart-popup');
 buyNowBtn.addEventListener('click', () => {
-  if (cart.length === 0) {
-    alert('Your cart is empty. Add some products first!');
-    return;
+
+  
+  // Check if cart is empty by seeing if it has any children
+  if (cartContainer.children.length === 0) {
+        showPopupEmptyCart.classList.add('empty-cart-popup-show');
+        return;
   }
-
-  // Optional: show a confirmation popup
-  alert('🎉 Thank you for your purchase!');
-
-
+  else {
+        // Show success alert.
+        showPopupProductOnCart.classList.add('have-product-oncart-popup-show');
+        // Optional: Clear the cart after purchase
+        cartContainer.innerHTML = '';
+        total = 0;
+        totalPriceEl.textContent = '$0.00';
+      }
+  
 });
+
+let okButtonEmpty = document.querySelector('.ok-btn-empty');
+okButtonEmpty.addEventListener('click', () => {
+  showPopupEmptyCart.classList.remove('empty-cart-popup-show');
+});
+
+let okButtonProductonCart = document.querySelector('.ok-btn-product-oncart');
+okButtonProductonCart.addEventListener('click', () => {
+  showPopupProductOnCart.classList.remove('have-product-oncart-popup-show');
+});
+
 
 
 
