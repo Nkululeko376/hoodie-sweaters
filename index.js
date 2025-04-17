@@ -63,7 +63,6 @@ function removeCartItem(event){
 
 //==============Codes of adding product items to cart
 
-
 let cartContainer = document.querySelector('.cart-product-container-main-section');
 let totalPriceEl = document.querySelector('.price');
 let total = 0;
@@ -118,7 +117,7 @@ cartItem.querySelector('.js-remove-cart-item').addEventListener('click', () => {
 const quantityInput = cartItem.querySelector('.js-quantity-input');
 const itemPriceDisplay = cartItem.querySelector('.pricing');
 
-quantityInput.addEventListener('input', () => {
+quantityInput.addEventListener('change', () => {
   const newQuantity = parseInt(quantityInput.value);
 
   // Prevent invalid or empty inputs
