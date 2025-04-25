@@ -29,6 +29,7 @@ let viewCart = document.querySelector('.js-add-to-cart');
 viewCart.addEventListener('click', () => {
     document.querySelector('main').classList.add('open-cart-section');
 });
+
 //================= close cart section ======================================
 let hideCart = document.querySelector('.js-remove-cart-section');
 hideCart.addEventListener('click', () => {
@@ -72,69 +73,69 @@ let total = 0;
 // Select all add-to-cart buttons (after generating HTML)
 document.querySelectorAll('.add-to-cart-btn').forEach((button, i) => {
   button.addEventListener('click', () => {
-    const product = products[i];
+              const product = products[i];
 
-   // Create cart item
-const cartItem = document.createElement('div');
-cartItem.classList.add('cart-product-container');
+            // Create cart item
+          const cartItem = document.createElement('div');
+          cartItem.classList.add('cart-product-container');
 
-// Track the quantity and product price
-let quantity = 1;
-const productPrice = product.priceCents / 100;
+          // Track the quantity and product price
+          let quantity = 1;
+          const productPrice = product.priceCents / 100;
 
-cartItem.innerHTML = `
-  <div class="cart-image-container">
-    <img src="${product.image}" alt="">
-  </div>
-  <div class="cart-product-details">
-    <div class="product-details-name">${product.name}</div>
-    <div class="name-and-delete-bn">
-      <div class="pricing">$${(productPrice * quantity).toFixed(2)}</div>
-      <button class="remove-cart-product js-remove-cart-item">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </div>
-    <div class="select-quantity">
-      <input type="number" class="js-quantity-input" value="${quantity}" min="1">
-    </div>
-  </div>
-`;
+          cartItem.innerHTML = `
+              <div class="cart-image-container">
+                <img src="${product.image}" alt="">
+              </div>
+              <div class="cart-product-details">
+                <div class="product-details-name">${product.name}</div>
+                <div class="name-and-delete-bn">
+                  <div class="pricing">$${(productPrice * quantity).toFixed(2)}</div>
+                  <button class="remove-cart-product js-remove-cart-item">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+                <div class="select-quantity">
+                  <input type="number" class="js-quantity-input" value="${quantity}" min="1">
+                </div>
+              </div>
+          `;
 
-cartContainer.appendChild(cartItem);
+          cartContainer.appendChild(cartItem);
 
-// Update total price
-total += productPrice * quantity;
-totalPriceEl.textContent = `$${total.toFixed(2)}`;
+          // Update total price
+          total += productPrice * quantity;
+          totalPriceEl.textContent = `$${total.toFixed(2)}`;
 
-// Remove item from cart
-cartItem.querySelector('.js-remove-cart-item').addEventListener('click', () => {
-  total -= productPrice * quantity;
-  totalPriceEl.textContent = `$${total.toFixed(2)}`;
-  cartContainer.removeChild(cartItem);
-});
+          // Remove item from cart
+          cartItem.querySelector('.js-remove-cart-item').addEventListener('click', () => {
+              total -= productPrice * quantity;
+              totalPriceEl.textContent = `$${total.toFixed(2)}`;
+              cartContainer.removeChild(cartItem);
+          });
 
-// Quantity input logic
-const quantityInput = cartItem.querySelector('.js-quantity-input');
-const itemPriceDisplay = cartItem.querySelector('.pricing');
+          // Quantity input logic
+          const quantityInput = cartItem.querySelector('.js-quantity-input');
+          const itemPriceDisplay = cartItem.querySelector('.pricing');
 
-quantityInput.addEventListener('change', () => {
-  const newQuantity = parseInt(quantityInput.value);
+          quantityInput.addEventListener('change', () => {
+          const newQuantity = parseInt(quantityInput.value);
 
-  // Prevent invalid or empty inputs
-  if (isNaN(newQuantity) || newQuantity < 1) {
-    quantityInput.value = 1;
-    return;
-  }
+            // Prevent invalid or empty inputs
+            if (isNaN(newQuantity) || newQuantity < 1) {
+                quantityInput.value = 1;
+                return;
+            }
 
-  // Update total price
-  total -= productPrice * quantity; // subtract old amount
-  quantity = newQuantity;
-  total += productPrice * quantity; // add new amount
+                // Update total price
+                total -= productPrice * quantity; // subtract old amount
+                quantity = newQuantity;
+                total += productPrice * quantity; // add new amount
 
-  // Update displays
-  itemPriceDisplay.textContent = `$${(productPrice * quantity).toFixed(2)}`;
-  totalPriceEl.textContent = `$${total.toFixed(2)}`;
-});
+                // Update displays
+                itemPriceDisplay.textContent = `$${(productPrice * quantity).toFixed(2)}`;
+                totalPriceEl.textContent = `$${total.toFixed(2)}`;
+          });
   });
 });
 

@@ -201,12 +201,26 @@ body {
     transform: scale(0.5, 0.5);
     visibility: hidden;
     overflow: scroll;
+    display: flex;
+    flex-direction: column;
 }
+
+
+/* to make room for the Buy button */
+/*==============Improve cart overflow handling with scroll==============*/
+.cart-product-container-main-section {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 25px; 
+    
+}
+
 .open-cart-section .cart-section{
     right: 0;
     top: 0;
     transform: scale(1, 1);
     visibility: visible;
+    
 }
 .remove-cart-section {
     border: 1px solid gray;
@@ -284,7 +298,7 @@ body {
     width: 100%;
 }
 .price-summary-container {
-    margin-top: 15px;
+    margin-top: 8px;
     display: flex;
     padding: 10px 5px;
     justify-content: space-between;
@@ -297,15 +311,16 @@ body {
 }
 
 .buy-now-btn {
-    margin-top: 30px;
-    margin-left: 40%;
-    padding: 4px 35px;
+    
+    width: 100%;
+    padding: 8px 0px;
     border: none;
     background-color: hsl(117, 93%, 52%);
     border-radius: 5px;
     cursor: pointer;
     color: white;
     font-weight: 700;
+   
 }
 /*===============End==================*/
 
